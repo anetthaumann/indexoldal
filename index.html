@@ -25,7 +25,7 @@
     .btn:hover { background-color: #1d4ed8; }
     main { margin-top: 2rem; width: min(900px, 92%); min-height: 320px; text-align: center; color: #555; }
 
-    /* tartalom / kártyák / kód */
+    
     .section { text-align: left; margin: 0 auto; }
     .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; background: #fff; }
     h2 { margin: 0.2rem 0 1rem; }
@@ -35,11 +35,21 @@
     .kv { color:#334155; }
     .badge { display:inline-block; font-size:.85rem; padding:.2rem .5rem; background:#eef2ff; border:1px solid #c7d2fe; border-radius:6px; }
 
-    /* példatáblázat szebb stílusa */
+    
     .table-examples{width:100%;border-collapse:collapse}
     .table-examples th,.table-examples td{border:1px solid #e5e7eb;padding:.6rem .8rem;vertical-align:top}
     .table-examples th{background:#f3f4f6;text-align:left}
     .table-examples pre{margin:0}
+  
+  footer {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+}
   </style>
 </head>
 <body>
@@ -61,6 +71,10 @@
   <main id="content">
     <p>Nézd meg a feladatokat a gombok valamelyikére kattintva!</p>
   </main>
+
+  <footer>
+    <p>ChatGPT segítségével lett megvalósítva</p>
+  </footer>
 
   <script>
     function showTask(num) {
