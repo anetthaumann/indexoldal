@@ -132,7 +132,10 @@ Számítsd ki és írd ki <code>f(N)</code> értékét!</p>
     return n * f(n-1)
 
 def main():
-    n = int(input())
+    n = int(input("Add meg N értékét (0–10 között): "))
+    if n < 0 or n > 10:
+        print("Hiba: N-nek 0 és 10 között kell lennie.")
+        return
     print(f(n))
 
 if __name__ == "__main__":
