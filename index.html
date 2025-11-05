@@ -2,7 +2,7 @@
 <html lang="hu">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Problémamegoldó szeminárium - feladatok</title>
   <style>
     body {
@@ -14,45 +14,32 @@
       flex-direction: column;
       align-items: center;
     }
-    header {
-      text-align: center;
-      margin-top: 60px;
-      margin-bottom: 40px;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .meta {
-      font-size: 1.1rem;
-      color: #444;
-      line-height: 1.4;
-    }
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+    header { text-align: center; margin-top: 60px; margin-bottom: 40px; }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .meta { font-size: 1.05rem; color: #444; line-height: 1.4; }
+    .buttons { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; justify-content: center; }
     .btn {
-      background-color: #2563eb;
-      color: white;
-      padding: 0.8rem 1.4rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
+      background-color: #2563eb; color: #fff; padding: .75rem 1rem; border: none;
+      border-radius: 10px; font-size: .95rem; cursor: pointer; transition: background-color .2s ease;
     }
-    .btn:hover {
-      background-color: #1d4ed8;
-    }
-    main {
-      margin-top: 3rem;
-      width: 80%;
-      min-height: 300px;
-      text-align: center;
-      color: #555;
-    }
+    .btn:hover { background-color: #1d4ed8; }
+    main { margin-top: 2rem; width: min(900px, 92%); min-height: 320px; text-align: center; color: #555; }
+
+    /* tartalom / kártyák / kód */
+    .section { text-align: left; margin: 0 auto; }
+    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem 1.2rem; margin: 1rem 0; background: #fff; }
+    h2 { margin: 0.2rem 0 1rem; }
+    h3 { margin: 0 0 .6rem; }
+    pre { background: #f6f8fa; padding: .8rem; border-radius: 8px; overflow: auto; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .kv { color:#334155; }
+    .badge { display:inline-block; font-size:.85rem; padding:.2rem .5rem; background:#eef2ff; border:1px solid #c7d2fe; border-radius:6px; }
+
+    /* példatáblázat szebb stílusa */
+    .table-examples{width:100%;border-collapse:collapse}
+    .table-examples th,.table-examples td{border:1px solid #e5e7eb;padding:.6rem .8rem;vertical-align:top}
+    .table-examples th{background:#f3f4f6;text-align:left}
+    .table-examples pre{margin:0}
   </style>
 </head>
 <body>
@@ -64,21 +51,232 @@
       <div>2025–2026 őszi félév</div>
     </div>
     <div class="buttons">
-      <button class="btn" onclick="showTask(1)">Első feladat - A Recursive Function</button>
-      <button class="btn" onclick="showTask(2)">Második feladat - A - Frog 1</button>
-      <button class="btn" onclick="showTask(3)">Harmadik feladat</button>
-      <button class="btn" onclick="showTask(4)">Negyedik feladat</button>
+      <button class="btn" onclick="showTask(1)">Első feladat (rekurzió) - A Recursive Function</button>
+      <button class="btn" onclick="showTask(2)">Második feladat (dinamikus programozás) - A - Frog 1</button>
+      <button class="btn" onclick="showTask(3)">Harmadik feladat (mohó stratégia) - Hit the lottery</button>
+      <button class="btn" onclick="showTask(4)">Negyedik feladat (gráf) - Reachable Roads</button>
     </div>
   </header>
 
   <main id="content">
-    <p>Válassz egy feladatot a fenti gombok közül!</p>
+    <p>Nézd meg a feladatokat a gombok valamelyikére kattintva!</p>
   </main>
 
   <script>
     function showTask(num) {
       const content = document.getElementById('content');
-      content.innerHTML = `<h2>${num}. feladat</h2><p>Itt lesz a ${num}. feladat tartalma.</p>`;
+      if (!content) return;
+
+      const empty = (n) => `
+        <div class="section">
+          <h2>${n}. feladat</h2>
+          <div class="card"><p>Hamarosan… Itt lesz a ${n}. feladat tartalma.</p></div>
+        </div>
+      `;
+
+      
+      if (num === 1) {
+        content.innerHTML = `
+          <div class="section">
+            <h2>1. feladat – Rekurzió: <span class="kv">ABC273 A: “A Recursive Function”</span></h2>
+
+            <div class="card">
+              <p><span class="badge">Forrás</span><br>
+                AtCoder Beginner Contest 273 (2022. október 15.) –
+                <a href="https://atcoder.jp/contests/abc273/tasks/abc273_a" target="_blank" rel="noopener">hivatalos feladatlink</a>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Feladat leírása</h3>
+              <p>Definiáljuk a függvényt rekurzívan:</p>
+              <pre><code>f(0) = 1
+f(k) = k · f(k-1)  (k ≥ 1)</code></pre>
+              <p>Adott egy egész <code>n</code>. Számítsd ki <code>f(n)</code> értékét és írd ki!</p>
+            </div>
+
+            <div class="card">
+              <h3>Bemenet / Kimenet példák</h3>
+              <table class="table-examples">
+                <tr><th>Bemenet</th><th>Kimenet</th></tr>
+                <tr><td><code>3</code></td><td><code>6</code></td></tr>
+                <tr><td><code>0</code></td><td><code>1</code></td></tr>
+                <tr><td><code>5</code></td><td><code>120</code></td></tr>
+              </table>
+            </div>
+
+            <div class="card">
+              <h3>Kész megoldás (Python)</h3>
+              <pre><code>import sys
+sys.setrecursionlimit(10**6)
+
+def f(n):
+    if n == 0:
+        return 1
+    return n * f(n-1)
+
+def main():
+    n = int(sys.stdin.readline().strip())
+    print(f(n))
+
+if __name__ == "__main__":
+    main()</code></pre>
+            </div>
+
+            <div class="card">
+              <h3>Magyarázat</h3>
+              <ul>
+                <li><b>Módszer:</b> rekurzió – a függvény önmagát hívja kisebb paraméterrel.</li>
+                <li><b>Alapeset:</b> <code>f(0)=1</code>. Erre épül minden további hívás.</li>
+                <li><b>Rekurzív lépés:</b> <code>f(n)=n·f(n-1)</code>. A méret minden lépésben csökken, ezért elérjük az alapesetet.</li>
+                <li><b>Helyesség:</b> indukcióval igazolható.</li>
+                <li><b>Komplexitás:</b> O(n) idő, O(n) verem.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      
+      if (num === 2) {
+        content.innerHTML = `
+          <div class="section">
+            <h2>2. feladat – Dinamikus programozás: <span class="kv">Educational DP Contest A: “Frog 1”</span></h2>
+
+            <div class="card">
+              <p><span class="badge">Forrás</span><br>
+                AtCoder Educational DP Contest (2019. január 6.) –
+                <a href="https://atcoder.jp/contests/dp/tasks/dp_a" target="_blank" rel="noopener">hivatalos feladatlink</a>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Feladat leírása</h3>
+              <p>Adott <code>N</code> kő, magasságaik <code>h[0..N-1]</code>. A béka az első kövön áll, és <b>1</b> vagy <b>2</b> követ ugorhat.
+              Egy <code>i → j</code> ugrás költsége <code>|h[i] - h[j]|</code>. Határozd meg a legkisebb összköltséget, amellyel eljuthat az <code>N</code>. kőre.</p>
+            </div>
+
+            <div class="card">
+              <h3>Bemenet / Kimenet példák</h3>
+              <table class="table-examples">
+                <tr><th>Bemenet</th><th>Kimenet</th></tr>
+                <tr>
+                  <td><pre><code>4
+10 30 40 20</code></pre></td>
+                  <td><pre><code>30</code></pre></td>
+                </tr>
+                <tr>
+                  <td><pre><code>2
+10 10</code></pre></td>
+                  <td><pre><code>0</code></pre></td>
+                </tr>
+                <tr>
+                  <td><pre><code>6
+30 10 60 10 60 50</code></pre></td>
+                  <td><pre><code>40</code></pre></td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="card">
+              <h3>Kész megoldás (Python)</h3>
+              <pre><code>import sys
+
+def main():
+    data = sys.stdin.read().strip().split()
+    n = int(data[0])
+    h = list(map(int, data[1:]))
+    INF = 10**18
+    dp = [INF]*n
+    dp[0] = 0
+    for i in range(1, n):
+        dp[i] = min(dp[i], dp[i-1] + abs(h[i]-h[i-1]))
+        if i >= 2:
+            dp[i] = min(dp[i], dp[i-2] + abs(h[i]-h[i-2]))
+    print(dp[-1])
+
+if __name__ == "__main__":
+    main()</code></pre>
+            </div>
+
+            <div class="card">
+              <h3>Magyarázat</h3>
+              <ul>
+                <li><b>Állapot:</b> <code>dp[i]</code> = minimális összköltség az <code>i</code>. kőre.</li>
+                <li><b>Átmenetek:</b> <code>dp[i] = min(dp[i-1] + |h[i]-h[i-1]|, dp[i-2] + |h[i]-h[i-2]|)</code>.</li>
+                <li><b>Alap:</b> <code>dp[0]=0</code>.</li>
+                <li><b>Komplexitás:</b> O(N) idő, O(N) memória (O(1)-re is szűkíthető).</li>
+              </ul>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      
+      if (num === 3) {
+        content.innerHTML = `
+          <div class="section">
+            <h2>3. feladat – Mohó algoritmus: <span class="kv">Codeforces 996A “Hit the Lottery”</span></h2>
+
+            <div class="card">
+              <p><span class="badge">Forrás</span><br>
+                Codeforces Problemset – 996A –
+                <a href="https://codeforces.com/problemset/problem/996/A" target="_blank" rel="noopener">hivatalos feladatlink</a>
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Feladat leírása</h3>
+              <p>Adott egy összeg <code>n</code>. A rendelkezésre álló bankjegyek: <code>[100, 20, 10, 5, 1]</code>.
+              Határozd meg a <b>minimális</b> bankjegyszámot, amellyel pontosan <code>n</code>-t ki lehet adni.</p>
+            </div>
+
+            <div class="card">
+              <h3>Bemenet / Kimenet példák</h3>
+              <table class="table-examples">
+                <tr><th>Bemenet</th><th>Kimenet</th></tr>
+                <tr><td><code>125</code></td><td><code>3</code></td></tr>
+                <tr><td><code>43</code></td><td><code>5</code></td></tr>
+                <tr><td><code>1000000000</code></td><td><code>10000000</code></td></tr>
+              </table>
+            </div>
+
+            <div class="card">
+              <h3>Kész megoldás (Python)</h3>
+              <pre><code>def main():
+    n = int(input())
+    notes = [100, 20, 10, 5, 1]
+    cnt = 0
+    for v in notes:
+        cnt += n // v
+        n %= v
+    print(cnt)
+
+if __name__ == "__main__":
+    main()</code></pre>
+            </div>
+
+            <div class="card">
+              <h3>Magyarázat</h3>
+              <ul>
+                <li><b>Módszer:</b> mohó – mindig a legnagyobb címletet választjuk először.</li>
+                <li><b>Miért működik:</b> a címletek kanonikus rendszert alkotnak; a lokálisan optimális döntés globálisan is optimális.</li>
+                <li><b>Lépések:</b> sorban végignézzük a címleteket; darabszám = <code>n // v</code>, maradék = <code>n % v</code>.</li>
+                <li><b>Komplexitás:</b> O(1) – fix számú címletet vizsgálunk.</li>
+              </ul>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+    
+      if (num === 4) {
+        content.innerHTML = empty(4);
+        return;
+      }
     }
   </script>
 </body>
