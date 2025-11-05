@@ -185,10 +185,15 @@ if __name__ == "__main__":
             </div>
 
             <div class="card">
-              <h3>Feladat leírása</h3>
-              <p>Adott <code>N</code> kő, magasságaik <code>h[0..N-1]</code>. A béka az első kövön áll, és <b>1</b> vagy <b>2</b> követ ugorhat.
-              Egy <code>i → j</code> ugrás költsége <code>|h[i] - h[j]|</code>. Határozd meg a legkisebb összköltséget, amellyel eljuthat az <code>N</code>. kőre.</p>
-            </div>
+  <h3>Feladat leírása</h3>
+  <p>Adott <code>N</code> darab kő, amelyeket 1-től <code>N</code>-ig számoztunk. Minden kőhöz tartozik egy magasság, amelyeket <code>h<sub>1</sub>, h<sub>2</sub>, …, h<sub>N</sub></code> jelölnek.</p>
+  <p>Egy béka kezdetben az első kövön áll, és az utolsó kőre szeretne eljutni. Minden lépésben a következőt teheti:</p>
+  <ul>
+    <li>Ha jelenleg az <code>i</code>. kövön áll, akkor ugorhat a <code>i+1</code>. vagy a <code>i+2</code>. kőre.</li>
+    <li>Az ugrás költsége a két kő magasságkülönbségének abszolút értéke: <code>|h<sub>i</sub> - h<sub>j</sub>|</code>, ahol <code>j</code> az a kő, ahová ugrik.</li>
+  </ul>
+  <p>Határozd meg a lehető legkisebb összköltséget, amelyet a béka fizet, mire eléri az utolsó követ.</p>
+</div>
 
             <div class="card">
               <h3>Bemenet / Kimenet példák</h3>
