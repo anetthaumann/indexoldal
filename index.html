@@ -138,15 +138,31 @@ if __name__ == "__main__":
             </div>
 
             <div class="card">
-              <h3>Magyarázat</h3>
-              <ul>
-                <li><b>Módszer:</b> rekurzió – a függvény önmagát hívja kisebb paraméterrel.</li>
-                <li><b>Alapeset:</b> <code>f(0)=1</code>. Erre épül minden további hívás.</li>
-                <li><b>Rekurzív lépés:</b> <code>f(n)=n·f(n-1)</code>. A méret minden lépésben csökken, ezért elérjük az alapesetet.</li>
-                <li><b>Helyesség:</b> indukcióval igazolható.</li>
-                <li><b>Komplexitás:</b> O(n) idő, O(n) verem.</li>
-              </ul>
-            </div>
+            <h3>Magyarázat</h3>
+            <p>A program egy matematikai függvényt számol ki, amit rekurzív módon definiálunk. Ez tulajdonképpen a faktoriális függvény:
+            <code>f(0)=1</code>, és ha a szám nagyobb mint 0, akkor <code>f(k)=k×f(k−1)</code>.</p>
+
+            <p>A rekurzió azt jelenti, hogy a függvény önmagát hívja meg egy kisebb számmal, amíg el nem éri a nullát. Ekkor megáll, és elkezd visszafelé számolni.</p>
+
+            <h4>Példa n = 4 esetén</h4>
+            <ol>
+              <li>f(4) → 4 × f(3)</li>
+              <li>f(3) → 3 × f(2)</li>
+              <li>f(2) → 2 × f(1)</li>
+              <li>f(1) → 1 × f(0)</li>
+              <li>f(0) = 1 → innen visszafelé számolunk</li>
+            </ol>
+          <p>Visszafelé haladva: f(1)=1, f(2)=2, f(3)=6, f(4)=24 → a program ezt írja ki.</p>
+
+          <p>„A program egy rekurzív függvényt valósít meg, ami önmagát hívja meg, amíg el nem éri a nullát. A nullánál megáll, és visszafelé kiszámolja az értéket. Ez tulajdonképpen a faktoriális, tehát 4 esetén 4×3×2×1=24.”</p>
+
+  <h4>Összefoglalva</h4>
+  <ul>
+    <li><b>Rekurzió:</b> a függvény önmagát hívja meg.</li>
+    <li><b>Alapeset:</b> amikor n=0, ekkor a függvény megáll és 1-et ad vissza.</li>
+    <li><b>Faktoriális:</b> n × (n−1) × (n−2) × … × 1.</li>
+  </ul>
+</div>
           </div>
         `;
         return;
