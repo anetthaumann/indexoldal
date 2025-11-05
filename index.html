@@ -103,10 +103,15 @@
 
             <div class="card">
               <h3>Feladat leírása</h3>
-              <p>Definiáljuk a függvényt rekurzívan:</p>
-              <pre><code>f(0) = 1
-f(k) = k · f(k-1)  (k ≥ 1)</code></pre>
-              <p>Adott egy egész <code>n</code>. Számítsd ki <code>f(n)</code> értékét és írd ki!</p>
+              <p>Definiáljunk egy függvényt <code>f(x)</code>, amely nemnegatív egész számokra van értelmezve, és a következőképpen van meghatározva:</p>
+
+<ul>
+  <li><code>f(0) = 1</code></li>
+  <li><code>f(k) = k × f(k−1)</code>, ha <code>k</code> pozitív egész szám</li>
+</ul>
+
+<p>A feladat: adott egy egész szám <code>N</code> (<code>0 ≤ N ≤ 10</code>).  
+Számítsd ki és írd ki <code>f(N)</code> értékét!</p>
             </div>
 
             <div class="card">
@@ -121,16 +126,13 @@ f(k) = k · f(k-1)  (k ≥ 1)</code></pre>
 
             <div class="card">
               <h3>Kész megoldás (Python)</h3>
-              <pre><code>import sys
-sys.setrecursionlimit(10**6)
-
-def f(n):
+              <pre><code>def f(n):
     if n == 0:
         return 1
     return n * f(n-1)
 
 def main():
-    n = int(sys.stdin.readline().strip())
+    n = int(input())
     print(f(n))
 
 if __name__ == "__main__":
