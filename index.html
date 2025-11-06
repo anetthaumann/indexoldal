@@ -227,16 +227,16 @@ if __name__ == "__main__":
 
             <div class="card">
               <h3>Kész megoldás (Python)</h3>
-              <pre><code>import sys
+              <pre><code>
 
 def main():
-    # N beolvasása
+    
     N = int(input("Add meg a kövek számát (N): "))
 
-    # Magasságok beolvasása egy sorban, szóközzel elválasztva
+    
     h = list(map(int, input(f"Add meg a {N} kő magasságait szóközzel elválasztva: ").split()))
 
-    # Dinamikus programozás (DP) tömb létrehozása
+    
     dp = [0] * N
     dp[0] = 0
     dp[1] = abs(h[1] - h[0])
