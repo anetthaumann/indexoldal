@@ -357,14 +357,22 @@ if __name__ == "__main__":
             </div>
 
             <div class="card">
-              <h3>Magyarázat</h3>
-              <ul>
-                <li><b>Módszer:</b> mohó – mindig a legnagyobb címletet választjuk először.</li>
-                <li><b>Miért működik:</b> a címletek kanonikus rendszert alkotnak; a lokálisan optimális döntés globálisan is optimális.</li>
-                <li><b>Lépések:</b> sorban végignézzük a címleteket; darabszám = <code>n // v</code>, maradék = <code>n % v</code>.</li>
-                <li><b>Komplexitás:</b> O(1) – fix számú címletet vizsgálunk.</li>
-              </ul>
-            </div>
+  <h3>Magyarázat</h3>
+
+  <p>A program kiszámolja, hogy egy adott összeget hány bankjegyből lehet kifizetni a lehető legkevesebb darabbal. 
+  Mindig a legnagyobb címletet használja először – ez a <b>mohó algoritmus</b> elve.</p>
+
+  <p>A <code>notes</code> listában szerepelnek a címletek: <code>[100, 20, 10, 5, 1]</code>. 
+  A program minden címletre kiszámolja, hány darab fér bele (<code>n // v</code>), majd levonja a maradék összeget (<code>n %= v</code>).</p>
+
+  <p>A végén kiírja, hány bankjegy kellett összesen.</p>
+
+  <h4>Összefoglalva:</h4>
+  <ul>
+    <li><b>Módszer:</b> mohó stratégia – mindig a legnagyobb címletet választja először.</li>
+    <li><b>Miért működik:</b> a címletek rendszere olyan, hogy ez mindig optimális megoldást ad.</li>
+  </ul>
+</div>
           </div>
         `;
         return;
