@@ -252,14 +252,39 @@ if __name__ == "__main__":
             </div>
 
             <div class="card">
-              <h3>Magyarázat</h3>
-              <ul>
-                <li><b>Állapot:</b> <code>dp[i]</code> = minimális összköltség az <code>i</code>. kőre.</li>
-                <li><b>Átmenetek:</b> <code>dp[i] = min(dp[i-1] + |h[i]-h[i-1]|, dp[i-2] + |h[i]-h[i-2]|)</code>.</li>
-                <li><b>Alap:</b> <code>dp[0]=0</code>.</li>
-                <li><b>Komplexitás:</b> O(N) idő, O(N) memória (O(1)-re is szűkíthető).</li>
-              </ul>
-            </div>
+  <h3>Magyarázat</h3>
+
+  <p><b>Mi a feladat lényege?</b> Az első kőről eljutni az utolsóra úgy, hogy a magasságkülönbségek miatti összköltség a lehető legkisebb legyen. Minden lépésben csak az előző (<code>i−1</code>) vagy az azelőtti (<code>i−2</code>) kőre ugorhatunk.</p>
+
+  <h4>Dinamikus programozás ötlete</h4>
+  <p>Hozzunk létre egy tömböt: <code>dp</code>. Ennek jelentése: <code>dp[i]</code> = a legkisebb összköltség, amellyel eljutunk az <code>i</code>. kőre.</p>
+  <ul>
+    <li><code>dp[0] = 0</code> – az első kövön kezdünk, költség nincs.</li>
+    <li><code>dp[1] = |h[1] − h[0]|</code> – a második kőre csak az elsőről tudunk ugrani.</li>
+  </ul>
+
+  <h4>Általános lépés (a 3. kőtől kezdve)</h4>
+  <p>Minden <code>i ≥ 2</code> esetén két lehetőségünk van, és a <b>olcsóbbat választjuk</b>:</p>
+  <pre><code>dp[i] = min(
+  dp[i−1] + |h[i] − h[i−1]|,   # egyet ugrunk
+  dp[i−2] + |h[i] − h[i−2]|    # kettőt ugrunk
+)</code></pre>
+
+  <h4>Miért működik?</h4>
+  <p>Mert az <code>i</code>. kőre érkezve tényleg csak két ésszerű előzmény van: az előző vagy az azelőtti kő. A legjobb (minimális) odaérési költséget ezekre már kiszámoltuk (<code>dp[i−1]</code>, <code>dp[i−2]</code>), így csak az adott ugrás árát kell hozzáadni, és választani a kisebbet.</p>
+
+  <h4>Konkrét példa (N=4, h = [10, 30, 40, 20])</h4>
+  <ul>
+    <li><code>dp[0] = 0</code></li>
+    <li><code>dp[1] = |30 − 10| = 20</code></li>
+    <li><code>dp[2] = min( dp[1] + |40−30|,  dp[0] + |40−10| ) = min(20+10, 0+30) = 30</code></li>
+    <li><code>dp[3] = min( dp[2] + |20−40|,  dp[1] + |20−30| ) = min(30+20, 20+10) = 30</code></li>
+  </ul>
+  <p><b>Eredmény:</b> <code>dp[3] = 30</code> – ez a minimális összköltség.</p>
+
+  <h4>A kulcssor, amit érdemes elmondani</h4>
+  <p>„<i>dp[i] azt jelenti, mennyi a legkisebb költség az <code>i</code>. kőig. A 3. kőtől mindig a két lehetséges előzményből választok: az előzőről vagy az azelőttiről ugrok, és a kettő közül a kisebbik összköltséget veszem.</i>”</p>
+</div>
           </div>
         `;
         return;
