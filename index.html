@@ -256,7 +256,7 @@ if __name__ == "__main__":
 
   <p><b>Mi a feladat lényege?</b> Az első kőről eljutni az utolsóra úgy, hogy a magasságkülönbségek miatti összköltség a lehető legkisebb legyen. Minden lépésben csak az előző (<code>i−1</code>) vagy az azelőtti (<code>i−2</code>) kőre ugorhatunk.</p>
 
-  <h4>Dinamikus programozás ötlete</h4>
+  <h4>Dinamikus programozás</h4>
   <p>Hozzunk létre egy tömböt: <code>dp</code>. Ennek jelentése: <code>dp[i]</code> = a legkisebb összköltség, amellyel eljutunk az <code>i</code>. kőre.</p>
   <ul>
     <li><code>dp[0] = 0</code> – az első kövön kezdünk, költség nincs.</li>
@@ -283,7 +283,8 @@ if __name__ == "__main__":
   <p><b>Eredmény:</b> <code>dp[3] = 30</code> – ez a minimális összköltség.</p>
 
   <h4>A kulcssor:</h4>
-  <p>„dp[i] azt jelenti, mennyi a legkisebb költség az <code>i</code>. kőig. A 3. kőtől mindig a két lehetséges előzményből választok: az előzőről vagy az azelőttiről ugrok, és a kettő közül a kisebbik összköltséget veszem.”</p>
+  <p>A "dp[i]" azt jelenti, mennyi a legkisebb költség az <code>i</code>. kőig. 
+    A 3. kőtől mindig a két lehetséges előzményből választok: az előzőről vagy az azelőttiről ugrok, és a kettő közül a kisebbik összköltséget veszem.</p>
 </div>
           </div>
         `;
