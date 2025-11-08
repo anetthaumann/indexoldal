@@ -392,46 +392,29 @@ if __name__ == "__main__":
 </div>
 
       <div class="card">
-        <h3>Feladat leírása</h3>
-        <p>Egy nagy földrengés és tűzvész után a város útjainak egy része megsemmisült vagy járhatatlanná vált.
-        Emiatt a város egyes pontjai között már nem lehet közlekedni.</p>
+  <h3>Feladat leírása</h3>
+  <p>Egy nagy földrengés és tűzvész után a város útjainak egy része megsemmisült vagy járhatatlanná vált.
+  Emiatt a város egyes pontjai között már nem lehet közlekedni.</p>
 
-        <p>A várostervezők szeretnék a közlekedést mielőbb helyreállítani, ezért az a céljuk, hogy
-        <b>minél kevesebb új utat</b> építsenek ahhoz, hogy <b>minden pontból minden másik pont elérhető legyen</b>.</p>
+  <p>A várostervezők szeretnék a közlekedést mielőbb helyreállítani, ezért az a céljuk, hogy
+  <b>minél kevesebb új utat</b> építsenek ahhoz, hogy <b>minden pontból minden másik pont elérhető legyen</b>.</p>
 
-        <p>Tegyük fel, hogy bármely két pont között az út megépítésének költsége ugyanakkora, és
-        az utak <b>kétirányúak</b>.</p>
+  <p>Tegyük fel, hogy bármely két pont között az út megépítésének költsége ugyanakkora, és
+  az utak <b>kétirányúak</b>.</p>
 
-        <p>A feladatod: határozd meg, hogy <b>minimum hány új utat</b> kell építeni ahhoz,
-        hogy a város úthálózata ismét teljesen összefüggő legyen, vagyis minden pontból el lehessen jutni minden másikba.</p>
-      </div>
+  <p>A feladatod: határozd meg, hogy <b>minimum hány új utat</b> kell építeni ahhoz,
+  hogy a város úthálózata ismét teljesen összefüggő legyen, vagyis minden pontból el lehessen jutni minden másikba.</p>
 
-      <div class="card">
-        <h3>Bemenet / Kimenet példák</h3>
-        <table class="table-examples">
-          <tr><th>Bemenet</th><th>Kimenet</th></tr>
-          <tr>
-            <td>
-<pre><code>2
-3 3
-0 1
-1 2
-2 0
-10 6
-0 2
-8 9
-1 2
-1 8
-1 4
-4 7</code></pre>
-            </td>
-            <td>
-<pre><code>0
-3</code></pre>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <h4>Bemenet</h4>
+  <p>Az első sor egy egész számot tartalmaz, <code>t</code>-t, amely megadja, hány városleírás (teszteset) következik.
+  Minden városleírás első sora egy egész szám: <code>n</code> — az útvégpontok (csúcsok) száma. A végpontok indexei
+  <code>0</code> és <code>n−1</code> között vannak. Ezután következik egy egész szám <code>m</code>, majd <code>m</code> sor,
+  mindegyik sorban két egész szám: <code>u v</code>, amelyek egy <b>használható, kétirányú</b> utat jelölnek <code>u</code> és <code>v</code> végpontok között.
+  Minden pár egyszer szerepel, és minden út két különböző végpontot köt össze.</p>
+
+  <h4>Kimenet</h4>
+  <p>Minden városleírásra (tesztesetre) írd ki külön sorban a minimálisan hozzáadandó új utak számát.</p>
+</div>
     </div>
   `;
   return;
