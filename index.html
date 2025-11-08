@@ -380,9 +380,64 @@ if __name__ == "__main__":
 
     
       if (num === 4) {
-        content.innerHTML = empty(4);
-        return;
-      }
+  content.innerHTML = `
+    <div class="section">
+      <h2>4. feladat – Gráf algoritmus: <span class="kv">Kattis “Reachable Roads”</span></h2>
+
+      <div class="card">
+        <p><span class="badge">Forrás</span><br>
+          Kattis Online Judge –
+          <a href="https://open.kattis.com/problems/reachableroads" target="_blank" rel="noopener">
+            Reachable Roads – hivatalos feladatlink
+          </a>
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Feladat leírása</h3>
+        <p>Egy nagy földrengés és tűzvész után a város útjainak egy része megsemmisült vagy járhatatlanná vált.
+        Emiatt a város egyes pontjai között már nem lehet közlekedni.</p>
+
+        <p>A várostervezők szeretnék a közlekedést mielőbb helyreállítani, ezért az a céljuk, hogy
+        <b>minél kevesebb új utat</b> építsenek ahhoz, hogy <b>minden pontból minden másik pont elérhető legyen</b>.</p>
+
+        <p>Tegyük fel, hogy bármely két pont között az út megépítésének költsége ugyanakkora, és
+        az utak <b>kétirányúak</b>.</p>
+
+        <p>A feladatod: határozd meg, hogy <b>minimum hány új utat</b> kell építeni ahhoz,
+        hogy a város úthálózata ismét teljesen összefüggő legyen, vagyis minden pontból el lehessen jutni minden másikba.</p>
+      </div>
+
+      <div class="card">
+        <h3>Bemenet / Kimenet példák</h3>
+        <table class="table-examples">
+          <tr><th>Bemenet</th><th>Kimenet</th></tr>
+          <tr>
+            <td>
+<pre><code>2
+3 3
+0 1
+1 2
+2 0
+10 6
+0 2
+8 9
+1 2
+1 8
+1 4
+4 7</code></pre>
+            </td>
+            <td>
+<pre><code>0
+3</code></pre>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  `;
+  return;
+}
     }
   </script>
 </body>
