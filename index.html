@@ -334,13 +334,23 @@ Biztonsági okokból készpénzben szeretné felvenni az összeget (az okokat mo
             <div class="card">
               <h3>Kész megoldás (Python)</h3>
               <pre><code>def main():
-    n = int(input())
-    notes = [100, 20, 10, 5, 1]
-    cnt = 0
-    for v in notes:
-        cnt += n // v
-        n %= v
-    print(cnt)
+    try:
+        n = int(input("Add meg az összeget (1 ≤ n ≤ 1 000 000 000): "))
+        if n &lt; 1 or n &gt; 10**9:
+            print("Hiba: az összegnek 1 és 1 000 000 000 között kell lennie.")
+            return
+
+        notes = [100, 20, 10, 5, 1]
+        cnt = 0
+
+        for v in notes:
+            cnt += n // v
+            n %= v
+
+        print(f"Minimálisan szükséges bankjegyek száma: {cnt}")
+
+    except ValueError:
+        print("Hiba: egész számot adj meg!")
 
 if __name__ == "__main__":
     main()</code></pre>
